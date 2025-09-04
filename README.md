@@ -87,4 +87,4 @@ Governance: semantic versioning, schema changes via PR + review, minor backward-
 A DOI will be minted via Zenodo. For now, cite as:
 
 > OpenHealthMesh (OHSDM v1.0): An open schema for unified epidemic intelligence.  
-> https://github.com/your-org/openeimesh
+> https://github.com/your-org/openhealthmesh
