@@ -1,8 +1,8 @@
-# OpenEpiMesh (OHSDM v1.0)
+# OpenHealthMesh (OHSDM v1.0)
 
-**Open Epidemiological Mesh (OpenEpiMesh)** is an open schema for unifying diverse public health intelligence streams — OSINT/event alerts, wastewater/environmental measurements, genomic surveillance, and epidemiological events — into a single, governance-aware, analytics-ready structure.
+**Open Health Mesh (OpenHealthMesh)** is an open schema for unifying diverse public health intelligence streams — OSINT/event alerts, wastewater/environmental measurements, genomic surveillance, and epidemiological events — into a single, governance-aware, analytics-ready structure.
 
-## 🌍 Why OpenEpiMesh?
+## 🌍 Why OpenHealthMesh?
 
 Today, epidemic intelligence is fragmented:
 - **WHO-EIOS / HealthMap / ProMED** → unstructured news & event feeds
@@ -12,7 +12,7 @@ Today, epidemic intelligence is fragmented:
 
 These cannot be easily combined into a single operational picture for pandemic prevention.
 
-**OpenEpiMesh provides:**
+**OpenHealthMesh provides:**
 - 🧩 **One envelope** for 5 resource types: `SourceDoc`, `Site`, `Measurement`, `GenomicObservation`, `EpiEvent`
 - 🔒 **Governance first-class**: provenance, license, classification, retention, redactions
 - 🌐 **Geospatial + temporal precision**: ISO country codes, H3 cells, time precision flags
@@ -86,5 +86,5 @@ Governance: semantic versioning, schema changes via PR + review, minor backward-
 
 A DOI will be minted via Zenodo. For now, cite as:
 
-> OpenEpiMesh (OHSDM v1.0): An open schema for unified epidemic intelligence.  
+> OpenHealthMesh (OHSDM v1.0): An open schema for unified epidemic intelligence.  
 > https://github.com/your-org/openeimesh
