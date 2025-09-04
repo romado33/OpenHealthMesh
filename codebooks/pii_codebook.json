@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "pii_categories": [
+    {
+      "id": "name",
+      "description": "Personal names",
+      "handling": "remove or hash"
+    },
+    {
+      "id": "email",
+      "description": "Email addresses",
+      "handling": "hash"
+    },
+    {
+      "id": "phone",
+      "description": "Telephone numbers",
+      "handling": "hash"
+    },
+    {
+      "id": "address",
+      "description": "Street addresses",
+      "handling": "generalize to admin level"
+    }
+  ]
+}

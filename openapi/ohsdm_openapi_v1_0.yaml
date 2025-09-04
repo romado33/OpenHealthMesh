@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info: { title: OHSDM API, version: "1.0.0" }
+paths:
+  /health: { get: { responses: { '200': { description: OK }}}}
+  /schema: { get: { responses: { '200': { description: Schema JSON }}}}
+  /validate:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200': { description: Validation }
+  /submit: { post: { responses: { '202': { description: Accepted }}}}
+  /search:
+    get:
+      parameters: [ { name: resource_type, in: query, schema: { type: string }} ]
+      responses: { '200': { description: Hits }}

@@ -1,0 +1,326 @@
+[
+  {
+    "field": "schema_version",
+    "type": "string",
+    "required": "Yes",
+    "description": "Schema version",
+    "example": "1.0.0"
+  },
+  {
+    "field": "resource_type",
+    "type": "enum",
+    "required": "Yes",
+    "description": "OHSDM resource type",
+    "enum": [
+      "SourceDoc",
+      "Site",
+      "Measurement",
+      "GenomicObservation",
+      "EpiEvent"
+    ]
+  },
+  {
+    "field": "id",
+    "type": "string|UUID|ULID",
+    "required": "Yes",
+    "description": "Unique record id"
+  },
+  {
+    "field": "record_version",
+    "type": "integer",
+    "required": "Yes",
+    "description": "Version per id"
+  },
+  {
+    "field": "ingested_at",
+    "type": "datetime-UTC",
+    "required": "Yes",
+    "description": "UTC with 'Z' suffix"
+  },
+  {
+    "field": "effective_at",
+    "type": "datetime-UTC",
+    "required": "No",
+    "description": "When effective"
+  },
+  {
+    "field": "updated_at",
+    "type": "datetime-UTC",
+    "required": "No",
+    "description": "Last update time"
+  },
+  {
+    "field": "archived_at",
+    "type": "datetime-UTC",
+    "required": "No",
+    "description": "Archive time"
+  },
+  {
+    "field": "change_reason",
+    "type": "string",
+    "required": "No",
+    "description": "Reason for change"
+  },
+  {
+    "field": "audit_log[].action",
+    "type": "enum",
+    "required": "No",
+    "description": "Lifecycle action",
+    "enum": [
+      "created",
+      "corrected",
+      "superseded",
+      "merged",
+      "split",
+      "redacted",
+      "archived"
+    ]
+  },
+  {
+    "field": "provenance.sources[].type",
+    "type": "enum",
+    "required": "Yes",
+    "description": "Source type",
+    "enum": [
+      "url",
+      "api",
+      "file",
+      "citation"
+    ]
+  },
+  {
+    "field": "provenance.sources[].href",
+    "type": "string",
+    "required": "No",
+    "description": "Source URL"
+  },
+  {
+    "field": "provenance.license.id",
+    "type": "string",
+    "required": "Yes",
+    "description": "License id (e.g., cc-by-4.0)"
+  },
+  {
+    "field": "provenance.license.uri",
+    "type": "string",
+    "required": "Yes",
+    "description": "License url"
+  },
+  {
+    "field": "security.classification",
+    "type": "enum",
+    "required": "Yes",
+    "description": "Access tier",
+    "enum": [
+      "public",
+      "limited",
+      "restricted",
+      "confidential"
+    ]
+  },
+  {
+    "field": "security.pii_fields[]",
+    "type": "array[string]",
+    "required": "No",
+    "description": "PII fields list"
+  },
+  {
+    "field": "security.redactions[]",
+    "type": "array[object]",
+    "required": "No",
+    "description": "Redactions applied"
+  },
+  {
+    "field": "related_ids[].relation_type",
+    "type": "enum",
+    "required": "No",
+    "description": "Relation type",
+    "enum": [
+      "evidence_for",
+      "member_of_cluster",
+      "derived_from",
+      "supports",
+      "contradicts",
+      "sample_for",
+      "same_as"
+    ]
+  },
+  {
+    "field": "x_validation.period_order_ok",
+    "type": "boolean",
+    "required": "No",
+    "description": "Pipeline check: start<end"
+  },
+  {
+    "field": "body.title",
+    "type": "string",
+    "required": "No",
+    "description": "Doc title",
+    "resource": "SourceDoc"
+  },
+  {
+    "field": "body.reported_time.date",
+    "type": "date",
+    "required": "No",
+    "description": "Report date",
+    "resource": "SourceDoc"
+  },
+  {
+    "field": "body.diseases[].code",
+    "type": "string",
+    "required": "No",
+    "description": "ICD-10/SNOMED code",
+    "resource": "SourceDoc"
+  },
+  {
+    "field": "body.name",
+    "type": "string",
+    "required": "No",
+    "description": "Site name",
+    "resource": "Site"
+  },
+  {
+    "field": "body.site_type",
+    "type": "string",
+    "required": "No",
+    "description": "Site type",
+    "resource": "Site"
+  },
+  {
+    "field": "body.location.lat",
+    "type": "number",
+    "required": "No",
+    "description": "Latitude",
+    "resource": "Site"
+  },
+  {
+    "field": "body.location.lon",
+    "type": "number",
+    "required": "No",
+    "description": "Longitude",
+    "resource": "Site"
+  },
+  {
+    "field": "body.location_mode",
+    "type": "enum",
+    "required": "No",
+    "description": "site|geo",
+    "enum": [
+      "site",
+      "geo"
+    ],
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.observed_time.date",
+    "type": "date",
+    "required": "No",
+    "description": "Observation date",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.period.start_at",
+    "type": "datetime-UTC",
+    "required": "No",
+    "description": "Sampling start",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.period.end_at",
+    "type": "datetime-UTC",
+    "required": "No",
+    "description": "Sampling end",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.measurements[].code",
+    "type": "string",
+    "required": "Yes",
+    "description": "LOINC preferred",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.measurements[].value",
+    "type": "number",
+    "required": "Yes",
+    "description": "Value",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.measurements[].unit",
+    "type": "string",
+    "required": "Yes",
+    "description": "UCUM unit",
+    "resource": "Measurement"
+  },
+  {
+    "field": "body.lineage.code",
+    "type": "string",
+    "required": "No",
+    "description": "PANGO/Nextstrain",
+    "resource": "GenomicObservation"
+  },
+  {
+    "field": "body.mutations[]",
+    "type": "string",
+    "required": "No",
+    "description": "Protein/HGVS mutations",
+    "resource": "GenomicObservation"
+  },
+  {
+    "field": "body.sequence_id",
+    "type": "string",
+    "required": "No",
+    "description": "Accession",
+    "resource": "GenomicObservation"
+  },
+  {
+    "field": "body.consensus_quality",
+    "type": "number",
+    "required": "No",
+    "description": "Quality 0-1",
+    "resource": "GenomicObservation"
+  },
+  {
+    "field": "body.status",
+    "type": "enum",
+    "required": "No",
+    "description": "Event status",
+    "enum": [
+      "signal",
+      "suspected",
+      "probable",
+      "confirmed",
+      "discarded"
+    ],
+    "resource": "EpiEvent"
+  },
+  {
+    "field": "body.phenomenon",
+    "type": "enum",
+    "required": "No",
+    "description": "Event type",
+    "enum": [
+      "outbreak",
+      "resurgence",
+      "importation",
+      "superspreader",
+      "endemicity_shift"
+    ],
+    "resource": "EpiEvent"
+  },
+  {
+    "field": "body.case_counts[].new_cases",
+    "type": "integer",
+    "required": "No",
+    "description": "New cases",
+    "resource": "EpiEvent"
+  },
+  {
+    "field": "body.metrics.reproduction_number",
+    "type": "number",
+    "required": "No",
+    "description": "Rt",
+    "resource": "EpiEvent"
+  }
+]

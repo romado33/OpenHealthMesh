@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "metrics": [
+    {
+      "name": "viral_copies_per_L",
+      "loinc": "1234-5",
+      "ucum": "copies/L",
+      "description": "RNA copies per liter (wastewater)"
+    },
+    {
+      "name": "percentile",
+      "loinc": "LP12345-6",
+      "ucum": "%",
+      "description": "Percentile vs baseline"
+    },
+    {
+      "name": "flow_mgd",
+      "loinc": "LP99999-9",
+      "ucum": "[gal_us]/d",
+      "description": "Flow, million gallons/day"
+    }
+  ]
+}

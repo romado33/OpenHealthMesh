@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "dimensions": {
+    "age": {
+      "categories": [
+        "0-4",
+        "5-17",
+        "18-49",
+        "50-64",
+        "65+"
+      ]
+    },
+    "sex": {
+      "categories": [
+        "female",
+        "male",
+        "other",
+        "unknown"
+      ]
+    },
+    "ethnicity": {
+      "categories": [
+        "hispanic",
+        "non-hispanic",
+        "unknown"
+      ]
+    }
+  }
+}

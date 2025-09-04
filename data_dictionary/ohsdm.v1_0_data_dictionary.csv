@@ -1,0 +1,42 @@
+field,type,required,description,enum,example,resource
+schema_version,string,Yes,Schema version,,1.0.0,
+resource_type,enum,Yes,OHSDM resource type,"SourceDoc,Site,Measurement,GenomicObservation,EpiEvent",,
+id,string|UUID|ULID,Yes,Unique record id,,,
+record_version,integer,Yes,Version per id,,,
+ingested_at,datetime-UTC,Yes,UTC with 'Z' suffix,,,
+effective_at,datetime-UTC,No,When effective,,,
+updated_at,datetime-UTC,No,Last update time,,,
+archived_at,datetime-UTC,No,Archive time,,,
+change_reason,string,No,Reason for change,,,
+audit_log[].action,enum,No,Lifecycle action,"created,corrected,superseded,merged,split,redacted,archived",,
+provenance.sources[].type,enum,Yes,Source type,"url,api,file,citation",,
+provenance.sources[].href,string,No,Source URL,,,
+provenance.license.id,string,Yes,"License id (e.g., cc-by-4.0)",,,
+provenance.license.uri,string,Yes,License url,,,
+security.classification,enum,Yes,Access tier,"public,limited,restricted,confidential",,
+security.pii_fields[],array[string],No,PII fields list,,,
+security.redactions[],array[object],No,Redactions applied,,,
+related_ids[].relation_type,enum,No,Relation type,"evidence_for,member_of_cluster,derived_from,supports,contradicts,sample_for,same_as",,
+x_validation.period_order_ok,boolean,No,Pipeline check: start<end,,,
+body.title,string,No,Doc title,,,SourceDoc
+body.reported_time.date,date,No,Report date,,,SourceDoc
+body.diseases[].code,string,No,ICD-10/SNOMED code,,,SourceDoc
+body.name,string,No,Site name,,,Site
+body.site_type,string,No,Site type,,,Site
+body.location.lat,number,No,Latitude,,,Site
+body.location.lon,number,No,Longitude,,,Site
+body.location_mode,enum,No,site|geo,"site,geo",,Measurement
+body.observed_time.date,date,No,Observation date,,,Measurement
+body.period.start_at,datetime-UTC,No,Sampling start,,,Measurement
+body.period.end_at,datetime-UTC,No,Sampling end,,,Measurement
+body.measurements[].code,string,Yes,LOINC preferred,,,Measurement
+body.measurements[].value,number,Yes,Value,,,Measurement
+body.measurements[].unit,string,Yes,UCUM unit,,,Measurement
+body.lineage.code,string,No,PANGO/Nextstrain,,,GenomicObservation
+body.mutations[],string,No,Protein/HGVS mutations,,,GenomicObservation
+body.sequence_id,string,No,Accession,,,GenomicObservation
+body.consensus_quality,number,No,Quality 0-1,,,GenomicObservation
+body.status,enum,No,Event status,"signal,suspected,probable,confirmed,discarded",,EpiEvent
+body.phenomenon,enum,No,Event type,"outbreak,resurgence,importation,superspreader,endemicity_shift",,EpiEvent
+body.case_counts[].new_cases,integer,No,New cases,,,EpiEvent
+body.metrics.reproduction_number,number,No,Rt,,,EpiEvent
