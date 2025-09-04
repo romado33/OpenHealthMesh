@@ -1,6 +1,6 @@
-# Contributing to OpenEpiMesh
+# Contributing to OpenHealthMesh
 
-Thanks for your interest in contributing to OpenEpiMesh (OHSDM)! This project aims to be a **community-driven schema** for unifying public health intelligence.
+Thanks for your interest in contributing to OpenHealthMesh (OHSDM)! This project aims to be a **community-driven schema** for unifying public health intelligence.
 
 ## Ways to Contribute
 
